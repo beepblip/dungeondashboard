@@ -34,6 +34,6 @@ class CreateEncounterLocation extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('encounter_location');
     }
 }

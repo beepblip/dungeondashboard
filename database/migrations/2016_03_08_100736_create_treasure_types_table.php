@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTreasuresTable extends Migration
+class CreateTreasureTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,19 +12,16 @@ class CreateTreasuresTable extends Migration
      */
     public function up()
     {
-        Schema::create('treasures', function (Blueprint $table) {
+        Schema::create('treasure_types', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('campaign_id')->unsigned();
             $table->string('name', 120);
-            $table->integer('treasure_type_id')->unsigned();
             $table->text('description');
-            $table->integer('value');
             $table->timestamps();
 
             $table->foreign('campaign_id')
                 ->references('id')->on('campaigns')
                 ->onDelete('cascade');
-
         });
     }
 
@@ -35,6 +32,6 @@ class CreateTreasuresTable extends Migration
      */
     public function down()
     {
-        Schema::drop('treasures');
+        Schema::drop('treasure_types');
     }
 }

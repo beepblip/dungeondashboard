@@ -34,6 +34,6 @@ class CreateEncounterMonster extends Migration
      */
     public function down()
     {
-        Schema::drop('encounter_location');
+        Schema::drop('encounter_monster');
     }
 }
